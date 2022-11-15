@@ -68,6 +68,7 @@
 
     <br>
 
+    <% if false %>
     <h2>External Accounts</h2>
 
     <div class="boxline">
@@ -159,6 +160,7 @@
     </div>
 
     <br>
+    <% end %>
 
     <h2>Comment Reply Notification Settings</h2>
 
@@ -166,7 +168,7 @@
       <%= f.label :email_replies, "Receive E-mail:", :class => "required" %>
       <%= f.check_box :email_replies %>
     </div>
-
+    <% if Pushover.enabled? %>
     <div class="boxline">
       <%= f.label :pushover_replies, "Receive Pushover Alert:",
         :class => "required" %>
@@ -175,6 +177,7 @@
         Requires Pushover subscription above
       </span>
     </div>
+    <% end %>
 
     <br>
 
@@ -184,7 +187,7 @@
       <%= f.label :email_mentions, "Receive E-mail:", :class => "required" %>
       <%= f.check_box :email_mentions %>
     </div>
-
+    <% if Pushover.enabled? %>
     <div class="boxline">
       <%= f.label :pushover_mentions, "Receive Pushover Alert:",
         :class => "required" %>
@@ -193,6 +196,7 @@
         Requires Pushover subscription above
       </span>
     </div>
+    <% end %>
 
     <br>
 
@@ -202,7 +206,7 @@
       <%= f.label :email_messages, "Receive E-mail:", :class => "required" %>
       <%= f.check_box :email_messages %>
     </div>
-
+    <% if Pushover.enabled? %>
     <div class="boxline">
       <%= f.label :pushover_messages, "Receive Pushover Alert:",
         :class => "required" %>
@@ -211,6 +215,7 @@
         Requires Pushover subscription above
       </span>
     </div>
+    <% end %>
 
     <br>
 
@@ -225,6 +230,7 @@
 
     <br>
 
+    <% if false %>
     <h2>Mailing List Settings</h2>
 
     <p>
@@ -253,6 +259,7 @@
     </div>
 
     <br>
+    <% end %>
 
     <h2>Miscellaneous Settings</h2>
 
@@ -261,12 +268,12 @@
         :class => "required" %>
       <%= f.check_box :show_story_previews %>
     </div>
-
+    <% if false %>
     <div class="boxline">
       <%= f.label :show_avatars, "Show User Avatars:", :class => "required" %>
       <%= f.check_box :show_avatars %>
     </div>
-
+    <% end %>
     <div class="boxline">
       <%= f.label :prefers_color_scheme, "Color Scheme:", :class => "required" %>
       <label><%= f.radio_button :prefers_color_scheme, :system %> System (<a href="https://lobste.rs/s/eg1n75/dark_mode">details</a>)</label>
