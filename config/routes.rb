@@ -224,7 +224,7 @@ Rails.application.routes.draw do
 
   get "/privacy" => "about#privacy"
   get "/about" => "about#about"
-  get "/chat" => "about#chat"
+  # get "/chat" => "about#chat"
 
   get "/stats" => "stats#index"
 

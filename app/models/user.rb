@@ -93,7 +93,7 @@ class User < ApplicationRecord
 
   validates :password, :presence => true, :on => :create
 
-  VALID_USERNAME = /[A-Za-z0-9][A-Za-z0-9_-]{0,24}/.freeze
+  VALID_USERNAME = /[A-Za-z0-9][A-Za-z0-9_-]{9,24}/.freeze
   validates :username,
             :format => { :with => /\A#{VALID_USERNAME}\z/ },
             :length => { :maximum => 50 },
@@ -140,7 +140,7 @@ class User < ApplicationRecord
     "sysop", "webmaster", "enable", "new", "signup",].freeze
 
   # days old accounts are considered new for
-  NEW_USER_DAYS = 70
+  NEW_USER_DAYS = 7
 
   # minimum karma required to be able to offer title/tag suggestions
   MIN_KARMA_TO_SUGGEST = 10
@@ -149,10 +149,13 @@ class User < ApplicationRecord
   MIN_KARMA_TO_FLAG = 50
 
   # minimum karma required to be able to submit new stories
-  MIN_KARMA_TO_SUBMIT_STORIES = -4
+  MIN_KARMA_TO_SUBMIT_STORIES = -2
 
   # minimum karma required to process invitation requests
   MIN_KARMA_FOR_INVITATION_REQUESTS = MIN_KARMA_TO_FLAG
+
+  # minimum karma required to send invitation e-mail
+  MIN_KARMA_FOR_SEND_INVITATION = 10
 
   # proportion of posts authored by user to consider as heavy self promoter
   HEAVY_SELF_PROMOTER_PROPORTION = 0.51
@@ -297,7 +300,7 @@ class User < ApplicationRecord
   end
 
   def can_invite?
-    !self.is_new? && !banned_from_inviting? && self.can_submit_stories?
+    !self.is_new? && !banned_from_inviting? && self.can_submit_stories? && (self.karma >= MIN_KARMA_FOR_SEND_INVITATION)
   end
 
   def can_offer_suggestions?
