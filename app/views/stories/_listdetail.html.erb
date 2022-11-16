@@ -1,7 +1,7 @@
 <%#
   The h-entry, u-report-of, u-url and h-card css classes are necessary
   for the webmentions support. http://microformats.org/wiki/h-entry
-  
+
   This has apparently useless <span> tags explained in a comment in CSS
   around .negative_1 in CSS (introduced same commit as this comment).
 %>
@@ -26,7 +26,7 @@ class="story <%= story.vote && story.vote[:vote] == 1 ? "upvoted" : "" %>
   <div class="details">
     <span class="link h-cite u-repost-of">
       <% if story.can_be_seen_by_user?(@user) %>
-        <a class="u-url" href="<%= story.url_or_comments_path %>" rel="ugc <%= story.send_referrer? ? '' : 'noreferrer' %>"><%= story.title %></a>
+        <a class="u-url" href="<%= story.url_or_comments_path %>" rel="ugc <%= story.send_referrer? ? '' : 'noreferrer' %>" target="_blank"><%= story.title %></a>
       <% end %>
       <% if story.is_gone? %>
         [Story removed by <%= story.is_moderated? ? "moderator" :
@@ -52,7 +52,7 @@ class="story <%= story.vote && story.vote[:vote] == 1 ? "upvoted" : "" %>
           <br>
           <span class="merge"></span>
           <span class="link">
-            <a href="<%= ms.url_or_comments_path %>" rel="ugc <%= ms.send_referrer? ? '' : 'noreferrer' %>"%><%= ms.title %></a>
+            <a href="<%= ms.url_or_comments_path %>" rel="ugc <%= ms.send_referrer? ? '' : 'noreferrer' %>" target="_blank"><%= ms.title %></a>
           </span>
           <span class="tags">
             <% ms.tags.each do |tag| %>
@@ -164,9 +164,9 @@ class="story <%= story.vote && story.vote[:vote] == 1 ? "upvoted" : "" %>
             <input id="archive_<%= story.short_id %>" class="archive_button" type="checkbox">
             <label for="archive_<%= story.short_id %>">archive</label>
             <div class="archive-dropdown">
-              <a href="<%= story.archiveorg_url %>">Archive.org</a>
-              <a href="<%= story.archivetoday_url %>">Archive.today</a>
-              <a href="<%= story.ghost_url %>">Ghostarchive</a>
+              <a href="<%= story.archiveorg_url %>" target="_blank">Archive.org</a>
+              <a href="<%= story.archivetoday_url %>" target="_blank">Archive.today</a>
+              <a href="<%= story.ghost_url %>" target="_blank">Ghostarchive</a>
             </div>
           </span>
         <% end %>
