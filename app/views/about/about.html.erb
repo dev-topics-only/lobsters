@@ -1,14 +1,31 @@
 <% render partial: 'about/subnav' %>
 
 <div class="box wide">
-  <%- raise "Site owner: You need to delete app/views/home/about.html.erb and write your own about page" if Rails.env.production? and Rails.application.name != 'Lobsters' -%>
-
+  <div class="story_text">
+  <p>
+  Welcome to the <strong>Dev Topics Only</strong> (<strong><a href="https://dto.pipecraft.net/">DTO</a></strong>) community.
+  </p>
+   <p>
+  <strong><a href="https://dto.pipecraft.net/">DTO</a></strong> 是一个只讨论技术话题的程序员社区。它是一个类似 <a href="https://news.ycombinator.com/" target="_blank">Hacker News</a>, <a href="https://lobste.rs/" target="_blank">Lobsters</a> 的链接分享社区，在这里只可以分享与程序开发相关的链接与内容。<strong>DTO</strong> 没有会员注册功能，通过<a href="#invitations">邀请制</a>成为会员。
+  </p>
+  <h2 id="invitations_method">邀请码申请入口</h2>
+  <ul>
+    <li><a href="https://github.com/dev-topics-only/lobsters/issues/1" target="_blank">GitHub</a></li>
+  </ul>
+  <p>
+  这个网站是在 <a href="https://lobste.rs/" target="_blank">Lobsters</a> 的<a href="https://github.com/lobsters/lobsters" target="_blank">开源代码</a>基础上做的定制开发。在这里向 <a href="https://lobste.rs/" target="_blank">Lobsters</a> 表示感谢与致敬。这个网站的功能特点请看下面关于 Lobsters 的介绍。
+  </p>
+  </div>
+</div>
+<hr>
+<h2 class=""><a href="https://lobste.rs/about" target="_blank">About Lobsters</a></h2>
+<div class="box wide">
   <div class="story_text">
   <p>
   Lobsters is a computing-focused community centered around link aggregation
   and discussion, launched on July 3rd, 2012.
-  The administrator is <a href="/u/pushcx">Peter Bhat Harkins</a> ("pushcx"), contact him with any support issues.
-  Lobsters was created by <a href="/u/jcs">joshua stein</a>
+  The administrator is <a href="https://lobste.rs/u/pushcx">Peter Bhat Harkins</a> ("pushcx"), contact him with any support issues.
+  Lobsters was created by <a href="https://lobste.rs/u/jcs">joshua stein</a>
   with careful design touches to encourage a healthy community:
   </p>
 
@@ -70,7 +87,7 @@
 
   <div id="topicality">
     <p>
-    Lobsters is focused pretty narrowly on computing; tags like <a href="/t/art">art</a> don't imply every piece of art is on-topic.
+    Lobsters is focused pretty narrowly on computing; tags like <a href="https://lobste.rs/t/art">art</a> don't imply every piece of art is on-topic.
     Some rules of thumb for great stories to submit: Will this improve the reader's next program? Will it deepen their understanding of their last program? Will it be more interesting in five or ten years?
     </p>
 
@@ -114,12 +131,12 @@
 
   <p>
   The quickest way to receive an invitation is to talk to someone you <a href="/u">recognize from the site</a>.
-  If you wrote a link that was posted, please reach out in <a href="/chat">chat</a>, we'd love to have you join the discussion.
+  If you wrote a link that was posted, please reach out in <a href="https://lobste.rs/chat">chat</a>, we'd love to have you join the discussion.
   Finally, if you can't find anyone you know in the invitation tree and didn't author something posted to the site,
   <% if Rails.application.allow_invitation_requests? %>
     you can <a href="/invitations/request">request an invite</a>.
   <% else %>
-    consider getting to know the community <a href="/chat">in the chat room</a>.
+    consider getting to know the community <a href="https://lobste.rs/chat">in the chat room</a>.
   <% end %>
   </p>
 
@@ -217,7 +234,7 @@
 
   <ul>
   <li><p>
-  <strong><a href="/s/jg3eet">Mailing list mode</a></strong> can be enabled
+  <strong><a href="https://lobste.rs/s/jg3eet">Mailing list mode</a></strong> can be enabled
   per-user to receive all new stories (including their plain-text content as
   fetched and extracted by <a href="http://diffbot.com/">Diffbot</a>) and user
   comments as e-mails, mirroring discussion threads offline.  This makes it
@@ -227,7 +244,6 @@
   which allows them to reply to stories or comments directly in their e-mail
   client.  These e-mails are then converted and submitted to the website as
   comments, just as if the comment was posted through a web browser.
-  <%- raise "Don't just delete that error message. You didn't set up mailing list mode, right? This really isn't your about page, write one from scratch." if Rails.env.production? and Rails.application.name != 'Lobsters' -%>
   </p>
 
   <li><p>
@@ -251,10 +267,10 @@
   </p></li>
 
   <li id="merging"><p>
-    <strong><a href="/s/cqq0kg/story_merging">Story merging</a></strong> collects comments on a topic that would otherwise fragment across multiple stories.
+    <strong><a href="https://lobste.rs/s/cqq0kg/story_merging">Story merging</a></strong> collects comments on a topic that would otherwise fragment across multiple stories.
     This keeps the front page from being overwhelmed by a single topic and the discussion together for those interested (or so disinterested they'd prefer to hide it).
     Moderators merge stories on the same topic submitted within a week.
-    Here's a <a href="/s/klkmey">small</a> and <a href="/s/zknzmj">large</a> example.
+    Here's a <a href="https://lobste.rs/s/klkmey">small</a> and <a href="https://lobste.rs/s/zknzmj">large</a> example.
   </p></li>
 
   <li><p>
@@ -267,7 +283,7 @@
   </p></li>
 
   <li><p>
-  <strong><a href="/s/z2dczs">User-suggested titles and tags</a></strong> can
+  <strong><a href="https://lobste.rs/s/z2dczs">User-suggested titles and tags</a></strong> can
   be automatically applied to a story when a quorum of users agrees on a new
   title (such as removing a site's name, or appending the story's year of
   publication) or set of tags, without any moderator action required.
@@ -314,7 +330,7 @@
   Lobsters is hosted on three <a href="https://slugs.do-api.dev/">VPSs</a> at DigitalOcean:
   a <tt>s-4vcpu-8gb</tt> for the web server,
   a <tt>s-2vcpu-4gb</tt> for the mariadb server, and
-  a <tt>s-1vcpu-1gb</tt> for the <a href="/chat">IRC bot</a>.
+  a <tt>s-1vcpu-1gb</tt> for the <a href="https://lobste.rs/chat">IRC bot</a>.
   Our domain name is registered with <a href="https://cridomains.rs/en">CRI Domains</a>, who donated our first year of registration.
   DNS is provided by <a href="https://dnsimple.com/">DNSimple</a> and
   we use <a href="https://www.tarsnap.com">Tarsnap</a> for backups, both of which pushcx pays for.
