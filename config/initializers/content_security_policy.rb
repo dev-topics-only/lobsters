@@ -6,12 +6,12 @@
 
 Rails.application.config.content_security_policy do |policy|
   policy.default_src :none
-  policy.connect_src :self
+  policy.connect_src :self, 'https://www.google-analytics.com/'
   policy.font_src    :self, :https, :data
   policy.img_src     '*', :data
   # script_src
   # unsafe_eval: required when previewing a story submission
-  policy.script_src  :self, :unsafe_inline, :unsafe_eval
+  policy.script_src  :self, :unsafe_inline, :unsafe_eval, 'https://www.googletagmanager.com/'
   policy.style_src   :self, :unsafe_inline
   policy.form_action :self
 
