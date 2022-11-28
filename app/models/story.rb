@@ -56,7 +56,7 @@ class Story < ApplicationRecord
     base(user).not_hidden_by(user)
         .filter_tags(exclude_tags || [])
         .low_scoring
-        .where("created_at >= ?", 10.days.ago)
+        .where("created_at >= ?", 30.days.ago)
         .where.not(id: front_page.ids)
         .order("stories.created_at DESC")
   }

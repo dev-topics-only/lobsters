@@ -33,7 +33,7 @@ class StoryRepository
         from comments
         where comments.story_id = stories.id
       ) as latest_comment_id')
-      .where('created_at >= ?', 3.days.ago)
+      .where('created_at >= ?', 14.days.ago)
       .order('latest_comment_id desc')
   end
 
