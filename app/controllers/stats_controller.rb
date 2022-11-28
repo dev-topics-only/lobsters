@@ -1,6 +1,6 @@
 class StatsController < ApplicationController
-  FIRST_MONTH = Time.new(2012, 7, 3).utc.freeze
-  TIMESCALE_DIVISIONS = "1 year".freeze
+  FIRST_MONTH = Time.new(2022, 6, 1).utc.freeze
+  TIMESCALE_DIVISIONS = "1 month".freeze
 
   def index
     @title = "Stats"
