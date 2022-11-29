@@ -46,15 +46,18 @@
 
     <div class="navholder">
       <nav class="links">
+        <%= link_to_different_page 'Hot', root_path %>
         <%= link_to_different_page 'Active', active_path %>
         <%= link_to_different_page 'Recent', recent_path %>
+        <%= link_to_different_page 'Newest', newest_path %>
+        <%= link_to_different_page 'Top', top_path %>
         <%= link_to_different_page 'Comments', comments_path %>
+        <%= link_to_different_page 'Search', search_path %>
 
         <% if @user && @user.can_submit_stories? %>
           <%= link_to_different_page 'Submit', new_story_path %>
         <% end %>
 
-        <%= link_to_different_page 'Search', search_path %>
 
 
         <% if @user %>

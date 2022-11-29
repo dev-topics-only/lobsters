@@ -33,6 +33,12 @@ Rails.application.routes.draw do
   get "/top" => "home#top"
   get "/top/rss" => "home#top", :format => "rss"
   get "/top/page/:page" => "home#top"
+  get "/top/month" => "home#top", :length => "1m"
+  get "/top/month/page/:page" => "home#top", :length => "1m"
+  get "/top/year" => "home#top", :length => "1y"
+  get "/top/year/page/:page" => "home#top", :length => "1y"
+  get "/top/infinity" => "home#top", :length => "100y"
+  get "/top/infinity/page/:page" => "home#top", :length => "100y"
   get "/top/:length" => "home#top"
   get "/top/:length/page/:page" => "home#top"
 

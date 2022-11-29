@@ -74,7 +74,6 @@ class HomeController < ApplicationController
     }
 
     @title = "Newest Stories"
-    @above = 'stories/subnav'
 
     @rss_link = {
       :title => "RSS 2.0 - Newest Items",
@@ -124,7 +123,6 @@ class HomeController < ApplicationController
     }
 
     @title = "Recent Stories"
-    @above = 'stories/subnav'
     @below = 'recent'
 
     # our list is unstable because upvoted stories get removed, so point at /newest.rss
@@ -264,7 +262,9 @@ class HomeController < ApplicationController
       paginate stories.top(length)
     }
 
-    if length[:dur] > 1
+    if length[:dur] > 99 && length[:intv] == 'Year'
+      @title = "Top Stories of All Time"
+    elsif length[:dur] > 1
       @title = "Top Stories of the Past #{length[:dur]} #{length[:intv]}"
     else
       @title = "Top Stories of the Past #{length[:intv]}"
