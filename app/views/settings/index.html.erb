@@ -1,6 +1,6 @@
 <% content_for :subnav do %>
   <a href="/u/<%= @user.username %>">Public Profile</a>
-  <a href="/filters">Filtered Tags</a> |
+  <a href="/filters">Filtered Tags</a> <span>|</span>
   <%= link_post 'Logout', logout_path, confirm: 'Are you sure you want to logout?' %>
 <% end %>
 
