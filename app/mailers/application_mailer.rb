@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default :from => "#{Rails.application.name} <nobody@#{Rails.application.domain}>"
+  default :from => "#{Rails.application.name} <dto-noreply@pipecraft.net>"
 end
