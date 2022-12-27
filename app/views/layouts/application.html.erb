@@ -6,13 +6,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon.png" />
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png" />
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72.png" />
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="referrer" content="always" />
-  <meta name="theme-color" content="#AC130D" />
+  <meta name="theme-color" content="#fefefe" />
   <% if @meta_tags %>
     <% @meta_tags.each do |k,v| %>
       <meta name="<%= k %>" content="<%= v %>" />
@@ -24,7 +25,8 @@
       href="<%= @short_url %>" />
   <% end %>
   <title><%= @title.present? ? "#{@title} | " : "" %><%=
-    Rails.application.name %></title>
+    Rails.application.name %><%= @title.present? ? "" : " - 一个类似 Hacker News, Lobsters 的链接分享社区" %></title>
+  <meta name="description" content="DTO 是一个只讨论技术话题的程序员社区。它是一个类似 Hacker News, Lobsters 的链接分享社区，在这里只可以分享与程序开发相关的链接与内容。" />
   <%= stylesheet_link_tag "application", :media => "all" %>
   <% if @user %>
     <%= javascript_include_tag "application" %>
@@ -42,7 +44,7 @@
 </head>
 <body data-username='<%= @user.try(:username) %>'>
   <header id="nav">
-    <a id="logo" style="<%= @traffic_style %>" href="/" title="<%= Rails.application.name %> (Current traffic: <%= @traffic_intensity.to_i %>%)"></a>
+    <a id="logo" href="/" title="<%= Rails.application.name %> (Current traffic: <%= @traffic_intensity.to_i %>%)"><%= Rails.application.name %></a>
 
     <div class="navholder">
       <nav class="links">
@@ -95,6 +97,18 @@
     </header>
   <% end %>
 
+  <div id="main">
+  <aside>
+    <div>
+      <p><strong>DTO</strong> = <strong>D</strong>ev <strong>T</strong>opics <strong>O</strong>nly</p>
+      <ul>
+        <li><a href="/about">Welcome to DTO</a></li>
+        <li><a href="/s/avrfsf">社区规则</a></li>
+        <li><a href="/s/tevmin">使用指南</a></li>
+        <li><a href="/s/rulyfs">FAQ</a></li>
+      </ul>
+    </div>
+  </aside>
   <div id="inside">
     <% if @title.present? && @title_h1 %>
       <h1 class="<%= @title_class %>"><%= @title %></h1>
@@ -107,6 +121,7 @@
     <% end %>
 
     <%= yield %>
+  </div>
   </div>
 
   <footer>

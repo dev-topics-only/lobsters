@@ -55,7 +55,7 @@ class="comment <%= comment.current_vote ? (comment.current_vote[:vote] == 1 ?
       <% end %>
 
       <a href="/u/<%= comment.user.username %>"
-        class="<%= comment.html_class_for_user %>"><%=
+        class="u-author <%= comment.html_class_for_user %>"><%=
         comment.user.username %></a>
 
       <% if comment.hat %>
