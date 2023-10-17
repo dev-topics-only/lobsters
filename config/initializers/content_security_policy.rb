@@ -13,7 +13,6 @@ Rails.application.config.content_security_policy do |policy|
   # unsafe_eval: required when previewing a story submission
   policy.script_src  :self, :unsafe_inline, :unsafe_eval, 'https://www.googletagmanager.com/', 'https://visitors.pipecraft.net/'
   policy.style_src   :self, :unsafe_inline
-  policy.frame_src   :self, 'https://embed.mailbrew.com/'
   policy.form_action :self
 
   # Specify URI for violation reports
